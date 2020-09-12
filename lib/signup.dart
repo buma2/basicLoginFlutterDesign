@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:basic_login_signup/loginPage.dart';
+import 'package:basic_login_signup/widgets/common_widgets.dart';
 
 class SignUpPage extends StatefulWidget {
 
@@ -9,7 +10,8 @@ class SignUpPage extends StatefulWidget {
 }
 
 class _SignUpPageState extends State<SignUpPage> {
-  Widget _backButton() {
+
+  Widget backButton() {
     return InkWell(
       onTap: () {
         Navigator.pop(context);
@@ -30,29 +32,7 @@ class _SignUpPageState extends State<SignUpPage> {
     );
   }
 
-  Widget _entryField(String title, {bool isPassword = false}) {
-    return Container(
-      margin: EdgeInsets.symmetric(vertical: 10),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
-          Text(
-            title,
-            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
-          ),
-          SizedBox(
-            height: 10,
-          ),
-          TextField(
-              obscureText: isPassword,
-              decoration: InputDecoration(
-                  border: InputBorder.none,
-                  fillColor: Color(0xfff3f3f4),
-                  filled: true))
-        ],
-      ),
-    );
-  }
+
 
   Widget _submitButton() {
     return Container(
@@ -110,9 +90,9 @@ class _SignUpPageState extends State<SignUpPage> {
   Widget _emailPasswordWidget() {
     return Column(
       children: <Widget>[
-        _entryField("Username"),
-        _entryField("E-mail"),
-        _entryField("Password", isPassword: true),
+        entryField("Username"),
+        entryField("E-mail"),
+        entryField("Password", isPassword: true),
       ],
     );
   }
@@ -147,7 +127,7 @@ class _SignUpPageState extends State<SignUpPage> {
                 ),
               ),
             ),
-            Positioned(top: 40, left: 0, child: _backButton()),
+            Positioned(top: 40, left: 0, child: backButton()),
           ],
         ),
         decoration: BoxDecoration(
