@@ -16,19 +16,7 @@ class _SignUpPageState extends State<SignUpPage> {
       onTap: () {
         Navigator.pop(context);
       },
-      child: Container(
-        padding: EdgeInsets.symmetric(horizontal: 10),
-        child: Row(
-          children: <Widget>[
-            Container(
-              padding: EdgeInsets.only(left: 0, top: 10, bottom: 10),
-              child: Icon(Icons.keyboard_arrow_left, color: Colors.black),
-            ),
-            Text('Back',
-                style: TextStyle(fontSize: 12, fontWeight: FontWeight.w500))
-          ],
-        ),
-      ),
+      child: backArrow(),
     );
   }
 
@@ -49,7 +37,7 @@ class _SignUpPageState extends State<SignUpPage> {
       color:Colors.black26),
       child: Text(
         'Register Now',
-        style: TextStyle(fontSize: 20, color: Colors.white),
+        style: Theme.of(context).textTheme.bodyText1,
       ),
     );
   }
@@ -88,12 +76,15 @@ class _SignUpPageState extends State<SignUpPage> {
   }
 
   Widget _emailPasswordWidget() {
-    return Column(
-      children: <Widget>[
-        entryField("Username"),
-        entryField("E-mail"),
-        entryField("Password", isPassword: true),
-      ],
+    return Padding(
+      padding: const EdgeInsets.only(bottom:20.0),
+      child: Column(
+        children: <Widget>[
+          entryField("Username"),
+          entryField("E-mail"),
+          entryField("Password", isPassword: true),
+        ],
+      ),
     );
   }
 
@@ -106,22 +97,14 @@ class _SignUpPageState extends State<SignUpPage> {
         child: Stack(
           children: <Widget>[
             Container(
-              padding: EdgeInsets.symmetric(horizontal: 20),
+              padding: EdgeInsets.symmetric(horizontal: 20,vertical:160),
               child: SingleChildScrollView(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
-                    SizedBox(height: height * .2),
-                    SizedBox(
-                      height: 50,
-                    ),
                     _emailPasswordWidget(),
-                    SizedBox(
-                      height: 20,
-                    ),
                     _submitButton(),
-                    SizedBox(height: height * .14),
                     _loginAccountLabel(),
                   ],
                 ),

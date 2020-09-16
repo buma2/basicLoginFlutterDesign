@@ -16,24 +16,9 @@ class _LoginPageState extends State<LoginPage> {
       onTap: () {
         Navigator.pop(context);
       },
-      child: Container(
-        padding: EdgeInsets.symmetric(horizontal: 10),
-        child: Row(
-          children: <Widget>[
-            Container(
-              padding: EdgeInsets.only(left: 0, top: 10, bottom: 10),
-              child: Icon(Icons.keyboard_arrow_left, color: Colors.black),
-            ),
-            Text('Back',
-                style: TextStyle(fontSize: 12, fontWeight: FontWeight.w500))
-          ],
-        ),
-      ),
+      child: backArrow(),
     );
   }
-
-
-
 
   Widget _submitButton() {
     return Container(
@@ -50,7 +35,7 @@ class _LoginPageState extends State<LoginPage> {
        color: Colors.black26),
       child: Text(
         'Login',
-        style: TextStyle(fontSize: 20, color: Colors.white),
+        style: Theme.of(context).textTheme.bodyText1,
       ),
     );
   }
@@ -108,22 +93,18 @@ class _LoginPageState extends State<LoginPage> {
           child: Stack(
             children: <Widget>[
               Container(
-                padding: EdgeInsets.symmetric(horizontal: 20),
+                padding: EdgeInsets.symmetric(horizontal: 20,vertical:200),
                 child: SingleChildScrollView(
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
-                      SizedBox(height: height * .2),
-                      SizedBox(height: 50),
                       _emailPasswordWidget(),
-                      SizedBox(height: 20),
                       _submitButton(),
                       _createAccountLabel(),
                     ],
                   ),
                 ),
-
               ),
               Positioned(top: 40, left: 0, child: backButton()),
             ],

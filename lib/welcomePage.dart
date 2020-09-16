@@ -10,44 +10,50 @@ class WelcomePage extends StatefulWidget {
 
 class _WelcomePageState extends State<WelcomePage> {
   Widget _loginButton() {
-    return InkWell(
-      onTap: () {
-        Navigator.push(
-            context, MaterialPageRoute(builder: (context) => LoginPage()));
-      },
-      child: Container(
-        width: MediaQuery.of(context).size.width,
-        padding: EdgeInsets.symmetric(vertical: 13),
-        alignment: Alignment.center,
-        decoration: BoxDecoration(
-            borderRadius: BorderRadius.all(Radius.circular(5)),
-            color: Colors.white,
-          border: Border.all(color: Colors.white, width: 1),),
-        child: Text(
-          'Login',
-          style: TextStyle(fontSize: 20, color: Colors.black54),
+    return Padding(
+      padding: const EdgeInsets.all(10.0),
+      child: InkWell(
+        onTap: () {
+          Navigator.push(
+              context, MaterialPageRoute(builder: (context) => LoginPage()));
+        },
+        child: Container(
+          width: MediaQuery.of(context).size.width,
+          padding: EdgeInsets.symmetric(vertical: 13),
+          alignment: Alignment.center,
+          decoration: BoxDecoration(
+              borderRadius: BorderRadius.all(Radius.circular(5)),
+              color: Colors.white,
+            border: Border.all(color: Colors.white, width: 1),),
+          child: Text(
+            'Login',
+            style: TextStyle(fontSize: 20, color: Colors.black54),
+          ),
         ),
       ),
     );
   }
 
   Widget _signUpButton() {
-    return InkWell(
-      onTap: () {
-        Navigator.push(
-            context, MaterialPageRoute(builder: (context) => SignUpPage()));
-      },
-      child: Container(
-        width: MediaQuery.of(context).size.width,
-        padding: EdgeInsets.symmetric(vertical: 13),
-        alignment: Alignment.center,
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.all(Radius.circular(5)),
-          border: Border.all(color: Colors.white, width: 1),
-        ),
-        child: Text(
-          'Register now',
-          style: TextStyle(fontSize: 20, color: Colors.white),
+    return Padding(
+      padding: const EdgeInsets.all(10.0),
+      child: InkWell(
+        onTap: () {
+          Navigator.push(
+              context, MaterialPageRoute(builder: (context) => SignUpPage()));
+        },
+        child: Container(
+          width: MediaQuery.of(context).size.width,
+          padding: EdgeInsets.symmetric(vertical: 13),
+          alignment: Alignment.center,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.all(Radius.circular(5)),
+            border: Border.all(color: Colors.white, width: 1),
+          ),
+          child: Text(
+            'Register now',
+            style: TextStyle(fontSize: 20, color: Colors.white),
+          ),
         ),
       ),
     );
@@ -55,15 +61,18 @@ class _WelcomePageState extends State<WelcomePage> {
 
 
   Widget _title() {
-    return RichText(
-      textAlign: TextAlign.center,
-      text: TextSpan(
-          text: 'Welcome!',
-          style: GoogleFonts.portLligatSans(
-            fontSize: 30,
-            fontWeight: FontWeight.w700,
-            color: Colors.white,
-          ),
+    return Padding(
+      padding: const EdgeInsets.all(25.0),
+      child: RichText(
+        textAlign: TextAlign.center,
+        text: TextSpan(
+            text: 'Welcome!',
+            style: GoogleFonts.portLligatSans(
+              fontSize: 30,
+              fontWeight: FontWeight.w700,
+              color: Colors.white,
+            ),
+        ),
       ),
     );
   }
@@ -87,13 +96,7 @@ class _WelcomePageState extends State<WelcomePage> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               _title(),
-              SizedBox(
-                height: 80,
-              ),
               _loginButton(),
-              SizedBox(
-                height: 20,
-              ),
               _signUpButton(),
             ],
           ),
