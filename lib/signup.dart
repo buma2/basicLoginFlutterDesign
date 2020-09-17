@@ -59,9 +59,6 @@ class _SignUpPageState extends State<SignUpPage> {
               'Already have an account ?',
               style: TextStyle(fontSize: 13, fontWeight: FontWeight.w600),
             ),
-            SizedBox(
-              width: 10,
-            ),
             Text(
               'Login',
               style: TextStyle(

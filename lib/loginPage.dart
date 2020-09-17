@@ -58,9 +58,6 @@ class _LoginPageState extends State<LoginPage> {
               'Don\'t have an account ?',
               style: TextStyle(fontSize: 13, fontWeight: FontWeight.w600),
             ),
-            SizedBox(
-              width: 10,
-            ),
             Text(
               'Register',
               style: TextStyle(
@@ -76,11 +73,14 @@ class _LoginPageState extends State<LoginPage> {
 
 
   Widget _emailPasswordWidget() {
-    return Column(
-      children: <Widget>[
-        entryField("E-mail"),
-        entryField("Password", isPassword: true),
-      ],
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 20.0),
+      child: Column(
+        children: <Widget>[
+          entryField("E-mail"),
+          entryField("Password", isPassword: true),
+        ],
+      ),
     );
   }
 
